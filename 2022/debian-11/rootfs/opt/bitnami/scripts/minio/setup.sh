@@ -43,7 +43,7 @@ else
     trap "minio_stop" EXIT
 
     if is_boolean_yes "$MINIO_DISTRIBUTED_MODE_ENABLED" && is_distributed_ellipses_syntax; then
-        read -r -a drives <<< "$(minio_distributed_drives)"
+        read -r -a drives <<<"$(minio_distributed_drives)"
         data_drive="${drives[0]}"
     fi
 
